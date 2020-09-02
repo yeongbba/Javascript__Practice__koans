@@ -25,20 +25,20 @@ describe('Inheritance에 관하여', function () {
   });
 
   it('자식 class의 method를 가지고 있어야합니다.', function () {
-    expect(this.swedishChef.cook()).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.cook()).toEqual('Mmmm soup!');
   });
 
   it('부모 class의 method를 가지고 있어야합니다.', function () {
-    expect(this.swedishChef.answerNanny()).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.answerNanny()).toEqual("Everything's cool!");
   });
 
   it('부모 class의 property를 가지고 있어야합니다.', function () {
-    expect(this.swedishChef.age).toEqual(FILL_ME_IN);
-    expect(this.swedishChef.hobby).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.age).toEqual(2);
+    expect(this.swedishChef.hobby).toEqual('cooking');
   });
 
   it('자식 class의 property를 가지고 있어야합니다.', function () {
-    expect(this.swedishChef.mood).toEqual(FILL_ME_IN);
+    expect(this.swedishChef.mood).toEqual('chillin');
   });
 });
 
@@ -66,19 +66,19 @@ describe('Prototype을 이용한 상속에 관하여', function () {
   });
 
   it('자식 class의 method를 가지고 있어야합니다.', function () {
-    expect(this.gonzo.doTrick()).toEqual(FILL_ME_IN);
+    expect(this.gonzo.doTrick()).toEqual('eat a tire');
   });
 
   it('부모 class의 method를 가지고 있어야합니다.', function () {
-    expect(this.gonzo.answerNanny()).toEqual(FILL_ME_IN);
+    expect(this.gonzo.answerNanny()).toEqual("Everything's cool!");
   });
 
   it('부모 class의 property를 가지고 있어야합니다.', function () {
-    expect(this.gonzo.age).toEqual(FILL_ME_IN);
-    expect(this.gonzo.hobby).toEqual(FILL_ME_IN);
+    expect(this.gonzo.age).toEqual(3);
+    expect(this.gonzo.hobby).toEqual('daredevil performer');
   });
 
   it('자식 class의 property를 가지고 있어야합니다.', function () {
-    expect(this.gonzo.trick).toEqual(FILL_ME_IN);
+    expect(this.gonzo.trick).toEqual('ear a tire');
   });
 });

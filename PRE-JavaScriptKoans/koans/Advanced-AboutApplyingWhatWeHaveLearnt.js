@@ -8,15 +8,24 @@ describe('지금까지 배운 것들에 관하여', function () {
       }
     }
 
-    expect(sum).toBe(FILL_ME_IN);
+    expect(sum).toBe(233168);
   });
 
   it('1000 보다 작은 모든 3 또는 5의 배수의 합을 찾아야합니다.(Array method)', function () {
-    let sum = FILL_ME_IN;
+    let newArr = [];
+    for (var i = 1; i < 1000; i++) {
+      if (i % 3 === 0 || i % 5 === 0) {
+        newArr.push(i);
+      }
+    }
+
+    let sum = newArr.reduce((acc, curr) => {
+        return acc + curr;
+    });
 
     /* 위의 테스트를 array method reduce를 활용해 바꾸어 보세요*/
 
-    expect(233168).toBe(FILL_ME_IN);
+    expect(233168).toBe(sum);
   });
 
   describe('피자들에 관하여', function () {
@@ -49,15 +58,17 @@ describe('지금까지 배운 것들에 관하여', function () {
         }
       }
 
-      expect(productsICanEat.length).toBe(FILL_ME_IN);
+      expect(productsICanEat.length).toBe(1);
     });
 
     it('견과류나 버섯이 들어가있지 않은 피자를 찾아야합니다.(Array method)', function () {
-      let productsICanEat = [];
+      let productsICanEat = products.filter(food => {
+        return food.containsNuts === false && food.ingredients.includes('mushrooms') === false;
+      })
 
       /* 위의 테스트를 array method filter를 활용해 바꾸어 보세요*/
 
-      expect(productsICanEat.length).toBe(FILL_ME_IN);
+      expect(productsICanEat.length).toBe(1);
     });
 
     it('위의 피자들을 만드는데 어떤 재료가 얼만큼 쓰였는지 찾아야합니다.', function () {
@@ -69,12 +80,34 @@ describe('지금까지 배운 것들에 관하여', function () {
         }
       }
 
-      expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+      expect(ingredientCount['mushrooms']).toBe(2);
     });
 
     it('위의 피자들을 만드는데 어떤 재료가 얼만큼 쓰였는지 찾아야합니다.(Array method)', function () {
       let ingredientCount = {}; // ingredientCount는 { "artichoke": 1 "mushrooms": 2 } 와 같은 형태가 될 것입니다.;
+      let newarr = [];
 
+      for (i = 0; i < products.length; i ++) {
+        products[i].ingredients.map( insertobj => {
+          newarr.push(insertobj);
+        });
+      }
+
+      newarr.sort();
+
+      newarr.reduce((acc, curr) => {
+        if (!Object.keys(ingredientCount).includes(acc)) {
+          ingredientCount[acc] = 0;
+        }
+        
+        if (acc === curr) {
+          ingredientCount[acc] = ingredientCount[acc] + 1;
+        }
+        else {
+          ingredientCount[acc] = ingredientCount[acc] + 1;
+          ingredientCount[curr] = 0;
+        }
+      });
       /* 위의 테스트를 map 과 reduce를 연결해 바꾸어 보세요 */
 
       expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
